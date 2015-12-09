@@ -1,0 +1,254 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Bulk_item	15_32.cpp	/^    Bulk_item(const string &name, const size_t us, const double pr, const size_t m, double rt):Item_Base(name, us, pr),mtq(m),rate(rt) {$/;"	f	class:Bulk_item	access:public	signature:(const string &name, const size_t us, const double pr, const size_t m, double rt)
+Bulk_item	15_32.cpp	/^class Bulk_item:public Item_Base {$/;"	c	file:	inherits:Item_Base
+Bulk_item	15_34A.cpp	/^    Bulk_item(const string &name, const size_t us, const double pr, const size_t m, double rt):Item_Base(name, us, pr),mtq(m),rate(rt) {$/;"	f	class:Bulk_item	access:public	signature:(const string &name, const size_t us, const double pr, const size_t m, double rt)
+Bulk_item	15_34A.cpp	/^class Bulk_item:public Item_Base {$/;"	c	file:	inherits:Item_Base
+Bulk_item	15_34B.cpp	/^    Bulk_item(const string &name, const size_t us, const double pr, const size_t m, double rt):Item_Base(name, us, pr),mtq(m),rate(rt) {$/;"	f	class:Bulk_item	access:public	signature:(const string &name, const size_t us, const double pr, const size_t m, double rt)
+Bulk_item	15_34B.cpp	/^class Bulk_item:public Item_Base {$/;"	c	file:	inherits:Item_Base
+Bulk_item	handle_test.cpp	/^    Bulk_item(const string &name, const size_t us, const double pr, const size_t m, double rt):Item_Base(name, us, pr),mtq(m),rate(rt) {$/;"	f	class:Bulk_item	access:public	signature:(const string &name, const size_t us, const double pr, const size_t m, double rt)
+Bulk_item	handle_test.cpp	/^class Bulk_item:public Item_Base {$/;"	c	file:	inherits:Item_Base
+Bulk_item::Bulk_item	15_32.cpp	/^    Bulk_item(const string &name, const size_t us, const double pr, const size_t m, double rt):Item_Base(name, us, pr),mtq(m),rate(rt) {$/;"	f	class:Bulk_item	access:public	signature:(const string &name, const size_t us, const double pr, const size_t m, double rt)
+Bulk_item::Bulk_item	15_34A.cpp	/^    Bulk_item(const string &name, const size_t us, const double pr, const size_t m, double rt):Item_Base(name, us, pr),mtq(m),rate(rt) {$/;"	f	class:Bulk_item	access:public	signature:(const string &name, const size_t us, const double pr, const size_t m, double rt)
+Bulk_item::Bulk_item	15_34B.cpp	/^    Bulk_item(const string &name, const size_t us, const double pr, const size_t m, double rt):Item_Base(name, us, pr),mtq(m),rate(rt) {$/;"	f	class:Bulk_item	access:public	signature:(const string &name, const size_t us, const double pr, const size_t m, double rt)
+Bulk_item::Bulk_item	handle_test.cpp	/^    Bulk_item(const string &name, const size_t us, const double pr, const size_t m, double rt):Item_Base(name, us, pr),mtq(m),rate(rt) {$/;"	f	class:Bulk_item	access:public	signature:(const string &name, const size_t us, const double pr, const size_t m, double rt)
+Bulk_item::clone	15_32.cpp	/^    virtual Bulk_item* clone() const {$/;"	f	class:Bulk_item	access:public	signature:() const
+Bulk_item::clone	15_34A.cpp	/^    virtual Bulk_item* clone() const {$/;"	f	class:Bulk_item	access:public	signature:() const
+Bulk_item::clone	15_34B.cpp	/^    virtual Bulk_item* clone() const {$/;"	f	class:Bulk_item	access:public	signature:() const
+Bulk_item::clone	handle_test.cpp	/^    virtual Bulk_item* clone() const {$/;"	f	class:Bulk_item	access:public	signature:() const
+Bulk_item::debug	15_32.cpp	/^    void debug() const {$/;"	f	class:Bulk_item	access:public	signature:() const
+Bulk_item::debug	15_34A.cpp	/^    void debug(bool open) const {$/;"	f	class:Bulk_item	access:public	signature:(bool open) const
+Bulk_item::debug	15_34B.cpp	/^    void debug() const {$/;"	f	class:Bulk_item	access:public	signature:() const
+Bulk_item::debug	handle_test.cpp	/^    void debug() const {$/;"	f	class:Bulk_item	access:public	signature:() const
+Bulk_item::mtq	15_32.cpp	/^    size_t mtq;$/;"	m	class:Bulk_item	file:	access:protected
+Bulk_item::mtq	15_34A.cpp	/^    size_t mtq;$/;"	m	class:Bulk_item	file:	access:protected
+Bulk_item::mtq	15_34B.cpp	/^    size_t mtq;$/;"	m	class:Bulk_item	file:	access:protected
+Bulk_item::mtq	handle_test.cpp	/^    size_t mtq;$/;"	m	class:Bulk_item	file:	access:protected
+Bulk_item::net_price	15_32.cpp	/^    double net_price();$/;"	p	class:Bulk_item	file:	access:public	signature:()
+Bulk_item::net_price	15_32.cpp	/^double Bulk_item::net_price() {$/;"	f	class:Bulk_item	signature:()
+Bulk_item::net_price	15_34A.cpp	/^    double net_price();$/;"	p	class:Bulk_item	file:	access:public	signature:()
+Bulk_item::net_price	15_34A.cpp	/^double Bulk_item::net_price() {$/;"	f	class:Bulk_item	signature:()
+Bulk_item::net_price	15_34B.cpp	/^    double net_price();$/;"	p	class:Bulk_item	file:	access:public	signature:()
+Bulk_item::net_price	15_34B.cpp	/^double Bulk_item::net_price() {$/;"	f	class:Bulk_item	signature:()
+Bulk_item::net_price	handle_test.cpp	/^    double net_price();$/;"	p	class:Bulk_item	file:	access:public	signature:()
+Bulk_item::net_price	handle_test.cpp	/^double Bulk_item::net_price() {$/;"	f	class:Bulk_item	signature:()
+Bulk_item::rate	15_32.cpp	/^    double rate;$/;"	m	class:Bulk_item	file:	access:protected
+Bulk_item::rate	15_34A.cpp	/^    double rate;$/;"	m	class:Bulk_item	file:	access:protected
+Bulk_item::rate	15_34B.cpp	/^    double rate;$/;"	m	class:Bulk_item	file:	access:protected
+Bulk_item::rate	handle_test.cpp	/^    double rate;$/;"	m	class:Bulk_item	file:	access:protected
+Item_Base	15_32.cpp	/^    Item_Base(const string &name, const size_t us, const double pr):isbn(name),units_sold(us),price(pr) {$/;"	f	class:Item_Base	access:public	signature:(const string &name, const size_t us, const double pr)
+Item_Base	15_32.cpp	/^class Item_Base {$/;"	c	file:
+Item_Base	15_34A.cpp	/^    Item_Base(const string &name, const size_t us, const double pr):isbn(name),units_sold(us),price(pr) {$/;"	f	class:Item_Base	access:public	signature:(const string &name, const size_t us, const double pr)
+Item_Base	15_34A.cpp	/^class Item_Base {$/;"	c	file:
+Item_Base	15_34B.cpp	/^    Item_Base(const string &name, const size_t us, const double pr):isbn(name),units_sold(us),price(pr),dbg_open(false) {$/;"	f	class:Item_Base	access:public	signature:(const string &name, const size_t us, const double pr)
+Item_Base	15_34B.cpp	/^class Item_Base {$/;"	c	file:
+Item_Base	handle_test.cpp	/^    Item_Base(const string &name, const size_t us, const double pr):isbn(name),units_sold(us),price(pr) {$/;"	f	class:Item_Base	access:public	signature:(const string &name, const size_t us, const double pr)
+Item_Base	handle_test.cpp	/^class Item_Base {$/;"	c	file:
+Item_Base	tags	/^Item_Base	15_34A.cpp	\/^    Item_Base(const string &name, const size_t us, const double pr):isbn(name),units_sold(us),price(pr) {$\/;"	f	class:Item_Base	access:public	signature:(const string &name, const size_t us, const double pr)$/;"	f	signature:(const string &name, const size_t us, const double pr)
+Item_Base::Item_Base	15_32.cpp	/^    Item_Base(const string &name, const size_t us, const double pr):isbn(name),units_sold(us),price(pr) {$/;"	f	class:Item_Base	access:public	signature:(const string &name, const size_t us, const double pr)
+Item_Base::Item_Base	15_34A.cpp	/^    Item_Base(const string &name, const size_t us, const double pr):isbn(name),units_sold(us),price(pr) {$/;"	f	class:Item_Base	access:public	signature:(const string &name, const size_t us, const double pr)
+Item_Base::Item_Base	15_34B.cpp	/^    Item_Base(const string &name, const size_t us, const double pr):isbn(name),units_sold(us),price(pr),dbg_open(false) {$/;"	f	class:Item_Base	access:public	signature:(const string &name, const size_t us, const double pr)
+Item_Base::Item_Base	handle_test.cpp	/^    Item_Base(const string &name, const size_t us, const double pr):isbn(name),units_sold(us),price(pr) {$/;"	f	class:Item_Base	access:public	signature:(const string &name, const size_t us, const double pr)
+Item_Base::clone	15_32.cpp	/^    virtual Item_Base * clone() const {$/;"	f	class:Item_Base	access:public	signature:() const
+Item_Base::clone	15_34A.cpp	/^    virtual Item_Base * clone() const {$/;"	f	class:Item_Base	access:public	signature:() const
+Item_Base::clone	15_34B.cpp	/^    virtual Item_Base * clone() const {$/;"	f	class:Item_Base	access:public	signature:() const
+Item_Base::clone	handle_test.cpp	/^    virtual Item_Base * clone() const {$/;"	f	class:Item_Base	access:public	signature:() const
+Item_Base::dbg_open	15_34B.cpp	/^    bool dbg_open;$/;"	m	class:Item_Base	file:	access:protected
+Item_Base::debug	15_32.cpp	/^    virtual void debug() const {$/;"	f	class:Item_Base	access:public	signature:() const
+Item_Base::debug	15_34A.cpp	/^    virtual void debug(bool open) const {$/;"	f	class:Item_Base	access:public	signature:(bool open) const
+Item_Base::debug	15_34B.cpp	/^    virtual void debug() const {$/;"	f	class:Item_Base	access:public	signature:() const
+Item_Base::debug	handle_test.cpp	/^    virtual void debug() const {$/;"	f	class:Item_Base	access:public	signature:() const
+Item_Base::debug_close	15_34B.cpp	/^    void debug_close() {$/;"	f	class:Item_Base	access:public	signature:()
+Item_Base::debug_open	15_34B.cpp	/^    void debug_open() {$/;"	f	class:Item_Base	access:public	signature:()
+Item_Base::isbn	15_32.cpp	/^    string isbn;$/;"	m	class:Item_Base	file:	access:protected
+Item_Base::isbn	15_34A.cpp	/^    string isbn;$/;"	m	class:Item_Base	file:	access:protected
+Item_Base::isbn	15_34B.cpp	/^    string isbn;$/;"	m	class:Item_Base	file:	access:protected
+Item_Base::isbn	handle_test.cpp	/^    string isbn;$/;"	m	class:Item_Base	file:	access:protected
+Item_Base::net_price	15_32.cpp	/^    virtual double net_price();$/;"	p	class:Item_Base	file:	access:public	signature:()
+Item_Base::net_price	15_32.cpp	/^double Item_Base::net_price() {$/;"	f	class:Item_Base	signature:()
+Item_Base::net_price	15_34A.cpp	/^    virtual double net_price();$/;"	p	class:Item_Base	file:	access:public	signature:()
+Item_Base::net_price	15_34A.cpp	/^double Item_Base::net_price() {$/;"	f	class:Item_Base	signature:()
+Item_Base::net_price	15_34B.cpp	/^    virtual double net_price();$/;"	p	class:Item_Base	file:	access:public	signature:()
+Item_Base::net_price	15_34B.cpp	/^double Item_Base::net_price() {$/;"	f	class:Item_Base	signature:()
+Item_Base::net_price	handle_test.cpp	/^    virtual double net_price();$/;"	p	class:Item_Base	file:	access:public	signature:()
+Item_Base::net_price	handle_test.cpp	/^double Item_Base::net_price() {$/;"	f	class:Item_Base	signature:()
+Item_Base::price	15_32.cpp	/^    double price;$/;"	m	class:Item_Base	file:	access:protected
+Item_Base::price	15_34A.cpp	/^    double price;$/;"	m	class:Item_Base	file:	access:protected
+Item_Base::price	15_34B.cpp	/^    double price;$/;"	m	class:Item_Base	file:	access:protected
+Item_Base::price	handle_test.cpp	/^    double price;$/;"	m	class:Item_Base	file:	access:protected
+Item_Base::units_sold	15_32.cpp	/^    size_t units_sold;$/;"	m	class:Item_Base	file:	access:protected
+Item_Base::units_sold	15_34A.cpp	/^    size_t units_sold;$/;"	m	class:Item_Base	file:	access:protected
+Item_Base::units_sold	15_34B.cpp	/^    size_t units_sold;$/;"	m	class:Item_Base	file:	access:protected
+Item_Base::units_sold	handle_test.cpp	/^    size_t units_sold;$/;"	m	class:Item_Base	file:	access:protected
+Item_Base::~Item_Base	15_32.cpp	/^    virtual ~Item_Base() {$/;"	f	class:Item_Base	access:public	signature:()
+Item_Base::~Item_Base	15_34A.cpp	/^    virtual ~Item_Base() {$/;"	f	class:Item_Base	access:public	signature:()
+Item_Base::~Item_Base	15_34B.cpp	/^    virtual ~Item_Base() {$/;"	f	class:Item_Base	access:public	signature:()
+Item_Base::~Item_Base	handle_test.cpp	/^    virtual ~Item_Base() {$/;"	f	class:Item_Base	access:public	signature:()
+Sales_item	15_32.cpp	/^    Sales_item():p(0), use(new size_t (1)) {$/;"	f	class:Sales_item	access:public	signature:()
+Sales_item	15_32.cpp	/^    Sales_item(Item_Base &);$/;"	p	class:Sales_item	file:	access:public	signature:(Item_Base &)
+Sales_item	15_32.cpp	/^    Sales_item(Sales_item &i):p(i.p),use(i.use) {$/;"	f	class:Sales_item	access:public	signature:(Sales_item &i)
+Sales_item	15_32.cpp	/^Sales_item::Sales_item(Item_Base &ib):p(ib.clone()),use(new size_t(1)) {$/;"	f	class:Sales_item	signature:(Item_Base &ib)
+Sales_item	15_32.cpp	/^class Sales_item {$/;"	c	file:
+Sales_item	15_34A.cpp	/^    Sales_item():p(0), use(new size_t (1)) {$/;"	f	class:Sales_item	access:public	signature:()
+Sales_item	15_34A.cpp	/^    Sales_item(Item_Base &);$/;"	p	class:Sales_item	file:	access:public	signature:(Item_Base &)
+Sales_item	15_34A.cpp	/^    Sales_item(Sales_item &i):p(i.p),use(i.use) {$/;"	f	class:Sales_item	access:public	signature:(Sales_item &i)
+Sales_item	15_34A.cpp	/^Sales_item::Sales_item(Item_Base &ib):p(ib.clone()),use(new size_t(1)) {$/;"	f	class:Sales_item	signature:(Item_Base &ib)
+Sales_item	15_34A.cpp	/^class Sales_item {$/;"	c	file:
+Sales_item	15_34B.cpp	/^    Sales_item():p(0), use(new size_t (1)) {$/;"	f	class:Sales_item	access:public	signature:()
+Sales_item	15_34B.cpp	/^    Sales_item(Item_Base &);$/;"	p	class:Sales_item	file:	access:public	signature:(Item_Base &)
+Sales_item	15_34B.cpp	/^    Sales_item(Sales_item &i):p(i.p),use(i.use) {$/;"	f	class:Sales_item	access:public	signature:(Sales_item &i)
+Sales_item	15_34B.cpp	/^Sales_item::Sales_item(Item_Base &ib):p(ib.clone()),use(new size_t(1)) {$/;"	f	class:Sales_item	signature:(Item_Base &ib)
+Sales_item	15_34B.cpp	/^class Sales_item {$/;"	c	file:
+Sales_item	handle_test.cpp	/^    Sales_item():p(0), use(new size_t (1)) {$/;"	f	class:Sales_item	access:public	signature:()
+Sales_item	handle_test.cpp	/^    Sales_item(Item_Base &);$/;"	p	class:Sales_item	file:	access:public	signature:(Item_Base &)
+Sales_item	handle_test.cpp	/^    Sales_item(Sales_item &i):p(i.p),use(i.use) {$/;"	f	class:Sales_item	access:public	signature:(Sales_item &i)
+Sales_item	handle_test.cpp	/^Sales_item::Sales_item(Item_Base &ib):p(ib.clone()),use(new size_t(1)) {$/;"	f	class:Sales_item	signature:(Item_Base &ib)
+Sales_item	handle_test.cpp	/^class Sales_item {$/;"	c	file:
+Sales_item::Sales_item	15_32.cpp	/^    Sales_item():p(0), use(new size_t (1)) {$/;"	f	class:Sales_item	access:public	signature:()
+Sales_item::Sales_item	15_32.cpp	/^    Sales_item(Item_Base &);$/;"	p	class:Sales_item	file:	access:public	signature:(Item_Base &)
+Sales_item::Sales_item	15_32.cpp	/^    Sales_item(Sales_item &i):p(i.p),use(i.use) {$/;"	f	class:Sales_item	access:public	signature:(Sales_item &i)
+Sales_item::Sales_item	15_32.cpp	/^Sales_item::Sales_item(Item_Base &ib):p(ib.clone()),use(new size_t(1)) {$/;"	f	class:Sales_item	signature:(Item_Base &ib)
+Sales_item::Sales_item	15_34A.cpp	/^    Sales_item():p(0), use(new size_t (1)) {$/;"	f	class:Sales_item	access:public	signature:()
+Sales_item::Sales_item	15_34A.cpp	/^    Sales_item(Item_Base &);$/;"	p	class:Sales_item	file:	access:public	signature:(Item_Base &)
+Sales_item::Sales_item	15_34A.cpp	/^    Sales_item(Sales_item &i):p(i.p),use(i.use) {$/;"	f	class:Sales_item	access:public	signature:(Sales_item &i)
+Sales_item::Sales_item	15_34A.cpp	/^Sales_item::Sales_item(Item_Base &ib):p(ib.clone()),use(new size_t(1)) {$/;"	f	class:Sales_item	signature:(Item_Base &ib)
+Sales_item::Sales_item	15_34B.cpp	/^    Sales_item():p(0), use(new size_t (1)) {$/;"	f	class:Sales_item	access:public	signature:()
+Sales_item::Sales_item	15_34B.cpp	/^    Sales_item(Item_Base &);$/;"	p	class:Sales_item	file:	access:public	signature:(Item_Base &)
+Sales_item::Sales_item	15_34B.cpp	/^    Sales_item(Sales_item &i):p(i.p),use(i.use) {$/;"	f	class:Sales_item	access:public	signature:(Sales_item &i)
+Sales_item::Sales_item	15_34B.cpp	/^Sales_item::Sales_item(Item_Base &ib):p(ib.clone()),use(new size_t(1)) {$/;"	f	class:Sales_item	signature:(Item_Base &ib)
+Sales_item::Sales_item	handle_test.cpp	/^    Sales_item():p(0), use(new size_t (1)) {$/;"	f	class:Sales_item	access:public	signature:()
+Sales_item::Sales_item	handle_test.cpp	/^    Sales_item(Item_Base &);$/;"	p	class:Sales_item	file:	access:public	signature:(Item_Base &)
+Sales_item::Sales_item	handle_test.cpp	/^    Sales_item(Sales_item &i):p(i.p),use(i.use) {$/;"	f	class:Sales_item	access:public	signature:(Sales_item &i)
+Sales_item::Sales_item	handle_test.cpp	/^Sales_item::Sales_item(Item_Base &ib):p(ib.clone()),use(new size_t(1)) {$/;"	f	class:Sales_item	signature:(Item_Base &ib)
+Sales_item::des_use	15_32.cpp	/^    void des_use() {$/;"	f	class:Sales_item	file:	access:private	signature:()
+Sales_item::des_use	15_34A.cpp	/^    void des_use() {$/;"	f	class:Sales_item	file:	access:private	signature:()
+Sales_item::des_use	15_34B.cpp	/^    void des_use() {$/;"	f	class:Sales_item	file:	access:private	signature:()
+Sales_item::des_use	handle_test.cpp	/^    void des_use() {$/;"	f	class:Sales_item	file:	access:private	signature:()
+Sales_item::operator *	15_32.cpp	/^    Item_Base &operator*() {$/;"	f	class:Sales_item	access:public	signature:()
+Sales_item::operator *	15_34A.cpp	/^    Item_Base &operator*() {$/;"	f	class:Sales_item	access:public	signature:()
+Sales_item::operator *	15_34B.cpp	/^    Item_Base &operator*() {$/;"	f	class:Sales_item	access:public	signature:()
+Sales_item::operator *	handle_test.cpp	/^    Item_Base &operator*() {$/;"	f	class:Sales_item	access:public	signature:()
+Sales_item::operator ->	15_32.cpp	/^    Item_Base *operator->() {$/;"	f	class:Sales_item	access:public	signature:()
+Sales_item::operator ->	15_34A.cpp	/^    Item_Base *operator->() {$/;"	f	class:Sales_item	access:public	signature:()
+Sales_item::operator ->	15_34B.cpp	/^    Item_Base *operator->() {$/;"	f	class:Sales_item	access:public	signature:()
+Sales_item::operator ->	handle_test.cpp	/^    Item_Base *operator->() {$/;"	f	class:Sales_item	access:public	signature:()
+Sales_item::operator =	15_32.cpp	/^    Sales_item &operator=(Sales_item &);$/;"	p	class:Sales_item	file:	access:public	signature:(Sales_item &)
+Sales_item::operator =	15_32.cpp	/^Sales_item &Sales_item::operator=(Sales_item &rhs) {$/;"	f	class:Sales_item	signature:(Sales_item &rhs)
+Sales_item::operator =	15_34A.cpp	/^    Sales_item &operator=(Sales_item &);$/;"	p	class:Sales_item	file:	access:public	signature:(Sales_item &)
+Sales_item::operator =	15_34A.cpp	/^Sales_item &Sales_item::operator=(Sales_item &rhs) {$/;"	f	class:Sales_item	signature:(Sales_item &rhs)
+Sales_item::operator =	15_34B.cpp	/^    Sales_item &operator=(Sales_item &);$/;"	p	class:Sales_item	file:	access:public	signature:(Sales_item &)
+Sales_item::operator =	15_34B.cpp	/^Sales_item &Sales_item::operator=(Sales_item &rhs) {$/;"	f	class:Sales_item	signature:(Sales_item &rhs)
+Sales_item::operator =	handle_test.cpp	/^    Sales_item &operator=(Sales_item &);$/;"	p	class:Sales_item	file:	access:public	signature:(Sales_item &)
+Sales_item::operator =	handle_test.cpp	/^Sales_item &Sales_item::operator=(Sales_item &rhs) {$/;"	f	class:Sales_item	signature:(Sales_item &rhs)
+Sales_item::p	15_32.cpp	/^    Item_Base *p;$/;"	m	class:Sales_item	file:	access:private
+Sales_item::p	15_34A.cpp	/^    Item_Base *p;$/;"	m	class:Sales_item	file:	access:private
+Sales_item::p	15_34B.cpp	/^    Item_Base *p;$/;"	m	class:Sales_item	file:	access:private
+Sales_item::p	handle_test.cpp	/^    Item_Base *p;$/;"	m	class:Sales_item	file:	access:private
+Sales_item::use	15_32.cpp	/^    size_t *use;$/;"	m	class:Sales_item	file:	access:private
+Sales_item::use	15_34A.cpp	/^    size_t *use;$/;"	m	class:Sales_item	file:	access:private
+Sales_item::use	15_34B.cpp	/^    size_t *use;$/;"	m	class:Sales_item	file:	access:private
+Sales_item::use	handle_test.cpp	/^    size_t *use;$/;"	m	class:Sales_item	file:	access:private
+Sales_item::~Sales_item	15_32.cpp	/^    ~Sales_item() {$/;"	f	class:Sales_item	access:public	signature:()
+Sales_item::~Sales_item	15_34A.cpp	/^    ~Sales_item() {$/;"	f	class:Sales_item	access:public	signature:()
+Sales_item::~Sales_item	15_34B.cpp	/^    ~Sales_item() {$/;"	f	class:Sales_item	access:public	signature:()
+Sales_item::~Sales_item	handle_test.cpp	/^    ~Sales_item() {$/;"	f	class:Sales_item	access:public	signature:()
+clone	15_32.cpp	/^    virtual Bulk_item* clone() const {$/;"	f	class:Bulk_item	access:public	signature:() const
+clone	15_32.cpp	/^    virtual Item_Base * clone() const {$/;"	f	class:Item_Base	access:public	signature:() const
+clone	15_34A.cpp	/^    virtual Bulk_item* clone() const {$/;"	f	class:Bulk_item	access:public	signature:() const
+clone	15_34A.cpp	/^    virtual Item_Base * clone() const {$/;"	f	class:Item_Base	access:public	signature:() const
+clone	15_34B.cpp	/^    virtual Bulk_item* clone() const {$/;"	f	class:Bulk_item	access:public	signature:() const
+clone	15_34B.cpp	/^    virtual Item_Base * clone() const {$/;"	f	class:Item_Base	access:public	signature:() const
+clone	handle_test.cpp	/^    virtual Bulk_item* clone() const {$/;"	f	class:Bulk_item	access:public	signature:() const
+clone	handle_test.cpp	/^    virtual Item_Base * clone() const {$/;"	f	class:Item_Base	access:public	signature:() const
+dbg_open	15_34B.cpp	/^    bool dbg_open;$/;"	m	class:Item_Base	file:	access:protected
+debug	15_32.cpp	/^    virtual void debug() const {$/;"	f	class:Item_Base	access:public	signature:() const
+debug	15_32.cpp	/^    void debug() const {$/;"	f	class:Bulk_item	access:public	signature:() const
+debug	15_34A.cpp	/^    virtual void debug(bool open) const {$/;"	f	class:Item_Base	access:public	signature:(bool open) const
+debug	15_34A.cpp	/^    void debug(bool open) const {$/;"	f	class:Bulk_item	access:public	signature:(bool open) const
+debug	15_34B.cpp	/^    virtual void debug() const {$/;"	f	class:Item_Base	access:public	signature:() const
+debug	15_34B.cpp	/^    void debug() const {$/;"	f	class:Bulk_item	access:public	signature:() const
+debug	handle_test.cpp	/^    virtual void debug() const {$/;"	f	class:Item_Base	access:public	signature:() const
+debug	handle_test.cpp	/^    void debug() const {$/;"	f	class:Bulk_item	access:public	signature:() const
+debug_close	15_34B.cpp	/^    void debug_close() {$/;"	f	class:Item_Base	access:public	signature:()
+debug_open	15_34B.cpp	/^    void debug_open() {$/;"	f	class:Item_Base	access:public	signature:()
+des_use	15_32.cpp	/^    void des_use() {$/;"	f	class:Sales_item	file:	access:private	signature:()
+des_use	15_34A.cpp	/^    void des_use() {$/;"	f	class:Sales_item	file:	access:private	signature:()
+des_use	15_34B.cpp	/^    void des_use() {$/;"	f	class:Sales_item	file:	access:private	signature:()
+des_use	handle_test.cpp	/^    void des_use() {$/;"	f	class:Sales_item	file:	access:private	signature:()
+format	tags	/^!_TAG_FILE_FORMAT	2	\/extended format; --format=1 will not append ;" to lines\/$/;"	v
+isbn	15_32.cpp	/^    string isbn;$/;"	m	class:Item_Base	file:	access:protected
+isbn	15_34A.cpp	/^    string isbn;$/;"	m	class:Item_Base	file:	access:protected
+isbn	15_34B.cpp	/^    string isbn;$/;"	m	class:Item_Base	file:	access:protected
+isbn	handle_test.cpp	/^    string isbn;$/;"	m	class:Item_Base	file:	access:protected
+main	15_32.cpp	/^int main()$/;"	f	signature:()
+main	15_34A.cpp	/^int main()$/;"	f	signature:()
+main	15_34B.cpp	/^int main()$/;"	f	signature:()
+main	handle_test.cpp	/^int main()$/;"	f	signature:()
+mtq	15_32.cpp	/^    size_t mtq;$/;"	m	class:Bulk_item	file:	access:protected
+mtq	15_34A.cpp	/^    size_t mtq;$/;"	m	class:Bulk_item	file:	access:protected
+mtq	15_34B.cpp	/^    size_t mtq;$/;"	m	class:Bulk_item	file:	access:protected
+mtq	handle_test.cpp	/^    size_t mtq;$/;"	m	class:Bulk_item	file:	access:protected
+net_price	15_32.cpp	/^    double net_price();$/;"	p	class:Bulk_item	file:	access:public	signature:()
+net_price	15_32.cpp	/^    virtual double net_price();$/;"	p	class:Item_Base	file:	access:public	signature:()
+net_price	15_32.cpp	/^double Bulk_item::net_price() {$/;"	f	class:Bulk_item	signature:()
+net_price	15_32.cpp	/^double Item_Base::net_price() {$/;"	f	class:Item_Base	signature:()
+net_price	15_34A.cpp	/^    double net_price();$/;"	p	class:Bulk_item	file:	access:public	signature:()
+net_price	15_34A.cpp	/^    virtual double net_price();$/;"	p	class:Item_Base	file:	access:public	signature:()
+net_price	15_34A.cpp	/^double Bulk_item::net_price() {$/;"	f	class:Bulk_item	signature:()
+net_price	15_34A.cpp	/^double Item_Base::net_price() {$/;"	f	class:Item_Base	signature:()
+net_price	15_34B.cpp	/^    double net_price();$/;"	p	class:Bulk_item	file:	access:public	signature:()
+net_price	15_34B.cpp	/^    virtual double net_price();$/;"	p	class:Item_Base	file:	access:public	signature:()
+net_price	15_34B.cpp	/^double Bulk_item::net_price() {$/;"	f	class:Bulk_item	signature:()
+net_price	15_34B.cpp	/^double Item_Base::net_price() {$/;"	f	class:Item_Base	signature:()
+net_price	handle_test.cpp	/^    double net_price();$/;"	p	class:Bulk_item	file:	access:public	signature:()
+net_price	handle_test.cpp	/^    virtual double net_price();$/;"	p	class:Item_Base	file:	access:public	signature:()
+net_price	handle_test.cpp	/^double Bulk_item::net_price() {$/;"	f	class:Bulk_item	signature:()
+net_price	handle_test.cpp	/^double Item_Base::net_price() {$/;"	f	class:Item_Base	signature:()
+operator *	15_32.cpp	/^    Item_Base &operator*() {$/;"	f	class:Sales_item	access:public	signature:()
+operator *	15_34A.cpp	/^    Item_Base &operator*() {$/;"	f	class:Sales_item	access:public	signature:()
+operator *	15_34B.cpp	/^    Item_Base &operator*() {$/;"	f	class:Sales_item	access:public	signature:()
+operator *	handle_test.cpp	/^    Item_Base &operator*() {$/;"	f	class:Sales_item	access:public	signature:()
+operator ->	15_32.cpp	/^    Item_Base *operator->() {$/;"	f	class:Sales_item	access:public	signature:()
+operator ->	15_34A.cpp	/^    Item_Base *operator->() {$/;"	f	class:Sales_item	access:public	signature:()
+operator ->	15_34B.cpp	/^    Item_Base *operator->() {$/;"	f	class:Sales_item	access:public	signature:()
+operator ->	handle_test.cpp	/^    Item_Base *operator->() {$/;"	f	class:Sales_item	access:public	signature:()
+operator =	15_32.cpp	/^    Sales_item &operator=(Sales_item &);$/;"	p	class:Sales_item	file:	access:public	signature:(Sales_item &)
+operator =	15_32.cpp	/^Sales_item &Sales_item::operator=(Sales_item &rhs) {$/;"	f	class:Sales_item	signature:(Sales_item &rhs)
+operator =	15_34A.cpp	/^    Sales_item &operator=(Sales_item &);$/;"	p	class:Sales_item	file:	access:public	signature:(Sales_item &)
+operator =	15_34A.cpp	/^Sales_item &Sales_item::operator=(Sales_item &rhs) {$/;"	f	class:Sales_item	signature:(Sales_item &rhs)
+operator =	15_34B.cpp	/^    Sales_item &operator=(Sales_item &);$/;"	p	class:Sales_item	file:	access:public	signature:(Sales_item &)
+operator =	15_34B.cpp	/^Sales_item &Sales_item::operator=(Sales_item &rhs) {$/;"	f	class:Sales_item	signature:(Sales_item &rhs)
+operator =	handle_test.cpp	/^    Sales_item &operator=(Sales_item &);$/;"	p	class:Sales_item	file:	access:public	signature:(Sales_item &)
+operator =	handle_test.cpp	/^Sales_item &Sales_item::operator=(Sales_item &rhs) {$/;"	f	class:Sales_item	signature:(Sales_item &rhs)
+p	15_32.cpp	/^    Item_Base *p;$/;"	m	class:Sales_item	file:	access:private
+p	15_34A.cpp	/^    Item_Base *p;$/;"	m	class:Sales_item	file:	access:private
+p	15_34B.cpp	/^    Item_Base *p;$/;"	m	class:Sales_item	file:	access:private
+p	handle_test.cpp	/^    Item_Base *p;$/;"	m	class:Sales_item	file:	access:private
+price	15_32.cpp	/^    double price;$/;"	m	class:Item_Base	file:	access:protected
+price	15_34A.cpp	/^    double price;$/;"	m	class:Item_Base	file:	access:protected
+price	15_34B.cpp	/^    double price;$/;"	m	class:Item_Base	file:	access:protected
+price	handle_test.cpp	/^    double price;$/;"	m	class:Item_Base	file:	access:protected
+rate	15_32.cpp	/^    double rate;$/;"	m	class:Bulk_item	file:	access:protected
+rate	15_34A.cpp	/^    double rate;$/;"	m	class:Bulk_item	file:	access:protected
+rate	15_34B.cpp	/^    double rate;$/;"	m	class:Bulk_item	file:	access:protected
+rate	handle_test.cpp	/^    double rate;$/;"	m	class:Bulk_item	file:	access:protected
+units_sold	15_32.cpp	/^    size_t units_sold;$/;"	m	class:Item_Base	file:	access:protected
+units_sold	15_34A.cpp	/^    size_t units_sold;$/;"	m	class:Item_Base	file:	access:protected
+units_sold	15_34B.cpp	/^    size_t units_sold;$/;"	m	class:Item_Base	file:	access:protected
+units_sold	handle_test.cpp	/^    size_t units_sold;$/;"	m	class:Item_Base	file:	access:protected
+use	15_32.cpp	/^    size_t *use;$/;"	m	class:Sales_item	file:	access:private
+use	15_34A.cpp	/^    size_t *use;$/;"	m	class:Sales_item	file:	access:private
+use	15_34B.cpp	/^    size_t *use;$/;"	m	class:Sales_item	file:	access:private
+use	handle_test.cpp	/^    size_t *use;$/;"	m	class:Sales_item	file:	access:private
+~Item_Base	15_32.cpp	/^    virtual ~Item_Base() {$/;"	f	class:Item_Base	access:public	signature:()
+~Item_Base	15_34A.cpp	/^    virtual ~Item_Base() {$/;"	f	class:Item_Base	access:public	signature:()
+~Item_Base	15_34B.cpp	/^    virtual ~Item_Base() {$/;"	f	class:Item_Base	access:public	signature:()
+~Item_Base	handle_test.cpp	/^    virtual ~Item_Base() {$/;"	f	class:Item_Base	access:public	signature:()
+~Sales_item	15_32.cpp	/^    ~Sales_item() {$/;"	f	class:Sales_item	access:public	signature:()
+~Sales_item	15_34A.cpp	/^    ~Sales_item() {$/;"	f	class:Sales_item	access:public	signature:()
+~Sales_item	15_34B.cpp	/^    ~Sales_item() {$/;"	f	class:Sales_item	access:public	signature:()
+~Sales_item	handle_test.cpp	/^    ~Sales_item() {$/;"	f	class:Sales_item	access:public	signature:()
