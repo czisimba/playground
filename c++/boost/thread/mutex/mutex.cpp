@@ -1,6 +1,7 @@
 #include <boost/thread/thread.hpp>
 #include <boost/thread/mutex.hpp>
 #include <iostream>
+#include <boost/thread/mutex.hpp>
 
 boost::mutex io_mutex;
 class count {
