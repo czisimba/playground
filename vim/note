@@ -1,0 +1,2 @@
+网上教程中配置文件的路径不对，真正的路径：
+.bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py

@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <pthread.h>
+#include <unistd.h>
 
 void *thread1_func(void *param)
 {
+    sleep(1);
     printf("In thread1 func\n");
 }
 
