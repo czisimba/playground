@@ -1,102 +1,74 @@
-#include <stdio.h>
-#include <string.h>
+#include <sys/types.h>
 #include <sys/socket.h>
+#include <strings.h>
+#include <string.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <unistd.h>
 #include <stdlib.h>
-#include <syslog.h>
+#include <stdio.h>
+#include <string.h>
 #include <errno.h>
+#include <signal.h>
+#include <sys/wait.h>
+#include <error.h>
+#include <syslog.h>
+#include <pthread.h>
 
-#define MAX_LISTEN_NUM 5
-#define SEND_BUF_SIZE 100
-#define RECV_BUF_SIZE 100
-#define LISTEN_PORT 11010
+#define MAX_MESSAGE_LEN 256
+#define CLIENT_PORT 7088
+#define SERVER_PORT 7089
 
+#define __DEBUG__ 
+#ifdef __DEBUG__
+#include <stdarg.h>
+void debug(const char *fmt, ...)
+{
+    va_list ap;
+    va_start(ap, fmt);
+    vprintf(fmt, ap);
+    va_end(ap);
+}
+#else
+void debug(const char *fmt, ...)
+{
+}
+#endif
+
+ 
 int main()
 {
-    int listen_sock = 0;
-    int app_sock = 0;
-    struct sockaddr_in hostaddr;
-    struct sockaddr_in clientaddr;
-    int socklen = sizeof(clientaddr);
-    char sendbuf[SEND_BUF_SIZE] = {0};
-    char recvbuf[RECV_BUF_SIZE] = {0};
-    int sendlen = 0;
-    int recvlen = 0;
-    int retlen = 0;
-    int leftlen = 0;
-    char *ptr = NULL;
-    memset((void *)&hostaddr, 0, sizeof(hostaddr));
-    memset((void *)&clientaddr, 0, sizeof(clientaddr));
-    hostaddr.sin_family = AF_INET;
-    hostaddr.sin_port = htons(LISTEN_PORT);
-    hostaddr.sin_addr.s_addr = htonl(INADDR_ANY);//auto get system ip address
-    listen_sock = socket(AF_INET, SOCK_STREAM, 0);
-    if(listen_sock < 0) {
-        syslog(LOG_ERR, "%s:%d, create socket failed", __FILE__, __LINE__);
-        exit(1);
-    }
-    if(bind(listen_sock, (struct sockaddr *)&hostaddr, sizeof(hostaddr)) < 0)
-    {
-        syslog(LOG_ERR, "%s:%d, bind socket failed", __FILE__, __LINE__);
-        exit(1);
-    }
-    if(listen(listen_sock, MAX_LISTEN_NUM) < 0)
-    {
-        syslog(LOG_ERR, "%s:%d, listen failed", __FILE__, __LINE__);
-        exit(1);
-    }
-    while(1)
-    {
-        app_sock = accept(listen_sock, (struct sockaddr *)&clientaddr, &socklen);
-        if(app_sock < 0)
-        {
-            syslog(LOG_ERR, "%s:%d, accept failed", __FILE__, __LINE__);
-            exit(1);
-        }
-        sprintf(sendbuf, "welcome %s:%d here!", (char *)inet_ntoa(clientaddr.sin_addr), clientaddr.sin_port);
-        //send data
-        sendlen = strlen(sendbuf) +1;
-        retlen = 0;
-        leftlen = sendlen;
-        ptr = sendbuf;
-        //while(leftlen)
-        {
-            retlen = send(app_sock, ptr, sendlen, 0);
-            if(retlen < 0)
-            {
-                if(errno == EINTR)
-                    retlen = 0;
-                else
-                    exit(1);
-            }
-            leftlen -= retlen;
-            ptr += retlen;
-        }
-        //receive data
-        recvlen = 0;
-        retlen = 0;
-        ptr = recvbuf;
-        leftlen = RECV_BUF_SIZE -1;
-        //do
-        {
-            retlen = recv(app_sock, ptr, leftlen, 0) ;
-            if(retlen < 0)
-            {
-                if(errno == EINTR)
-                    retlen = 0;
-                else
-                    exit(1);
-            }
-            recvlen += retlen;
-            leftlen -= retlen;
-            ptr += retlen;
-        }
-        //while(recvlen && leftlen);
-        printf("receive data is : %s\n", recvbuf);
-        close(app_sock);
-    }
-    close(listen_sock);
+    int sockfd;
+    struct sockaddr_in client_addr, server_addr;
 
-    return 0;
+    sockfd = socket(AF_INET, SOCK_DGRAM, 0);//UDP
+    if (sockfd == -1) {
+        syslog(LOG_ERR, "%s:%d, create socket failed,errno:%d",__FILE__, __LINE__, errno); 
+        exit(1);
+    }
+
+    server_addr.sin_family = AF_INET;
+    server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+    server_addr.sin_port = htons(SERVER_PORT);
+    if (bind(sockfd, (struct sockaddr *)&server_addr,sizeof(server_addr)) == -1) {
+        syslog(LOG_ERR, "%s:%d, bind socket failed,errno:%d", __FILE__, __LINE__, errno); 
+        exit(1);
+    }
+
+    client_addr.sin_family = AF_INET;
+    client_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+    client_addr.sin_port = htons(CLIENT_PORT);
+
+    char message[MAX_MESSAGE_LEN];
+    int msg_len;
+    sleep(10);// wait for some packet in buffer
+    while (1)
+    {
+		msg_len = recvfrom(sockfd, message, MAX_MESSAGE_LEN, 0, NULL, NULL);
+        debug("recv msg:%s\r\n", message);
+    }
+
+    close(sockfd);
+
+    exit(0);
 }

@@ -1,84 +1,77 @@
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <strings.h>
+#include <string.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <unistd.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <syslog.h>
 #include <errno.h>
-#include <stdlib.h>
+#include <signal.h>
+#include <sys/wait.h>
+#include <error.h>
+#include <syslog.h>
+#include <pthread.h>
 
-#define MAX_LISTEN_NUM 5
-#define SEND_BUF_SIZE 100
-#define RECV_BUF_SIZE 100
-#define SERVER_PORT 11010
+#define MAX_MESSAGE_LEN 256
+#define CLIENT_PORT 7088
+#define SERVER_PORT 7089
+
+#define __DEBUG__ 
+#ifdef __DEBUG__
+#include <stdarg.h>
+void debug(const char *fmt, ...)
+{
+    va_list ap;
+    va_start(ap, fmt);
+    vprintf(fmt, ap);
+    va_end(ap);
+}
+#else
+void debug(const char *fmt, ...)
+{
+}
+#endif
+
+ 
 int main()
 {
-    int sock_fd = 0;
-    char recvbuf[RECV_BUF_SIZE] = {0};
-    char sendbuf[SEND_BUF_SIZE] = {0};
-    int recvlen = 0;
-    int retlen = 0;
-    int sendlen = 0;
-    int leftlen = 0;
-    char *ptr = NULL;
-    struct sockaddr_in ser_addr;
+    int sockfd;
+    struct sockaddr_in client_addr, server_addr;
 
-    memset(&ser_addr, 0, sizeof(ser_addr));
-    ser_addr.sin_family = AF_INET;
-    inet_aton("127.0.0.1", (struct in_addr *)&ser_addr.sin_addr);
-    ser_addr.sin_port = htons(SERVER_PORT);
-    sock_fd = socket(AF_INET, SOCK_STREAM, 0);
-    if(sock_fd < 0)
-    {
-        syslog(LOG_ERR, "%s:%d, create socket failed", __FILE__, __LINE__);
+    sockfd = socket(AF_INET, SOCK_DGRAM, 0);//UDP
+    if (sockfd == -1) {
+        syslog(LOG_ERR, "%s:%d, create socket failed,errno:%d",__FILE__, __LINE__, errno); 
         exit(1);
     }
-    if(connect(sock_fd, (struct sockaddr *)&ser_addr, sizeof(ser_addr)) < 0)
-    {
-        syslog(LOG_ERR, "%s:%d, connect socket failed", __FILE__, __LINE__);
+
+    client_addr.sin_family = AF_INET;
+    client_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+    client_addr.sin_port = htons(CLIENT_PORT);
+    if (bind(sockfd, (struct sockaddr *)&client_addr,sizeof(client_addr)) == -1) {
+        syslog(LOG_ERR, "%s:%d, bind socket failed,errno:%d", __FILE__, __LINE__, errno); 
         exit(1);
     }
-    //receive data
-    recvlen = 0;
-    retlen = 0;
-    ptr = recvbuf;
-    leftlen = RECV_BUF_SIZE -1;
-    //do
-    {
-        retlen = recv(sock_fd, ptr, leftlen, 0) ;
-        if(retlen < 0)
-        {
-            if(errno == EINTR)
-                retlen = 0;
-            else
-                exit(1);
-        }
-        recvlen += retlen;
-        leftlen -= retlen;
-        ptr += retlen;
-    }
-    //while(recvlen && leftlen);
-    printf("receive data is : %s\n", recvbuf);
-    sprintf(sendbuf, "hello server\n");
-    //send data
-    sendlen = strlen(sendbuf) +1;
-    retlen = 0;
-    leftlen = sendlen;
-    ptr = sendbuf;
-    // while(leftlen)
-    {
-        retlen = send(sock_fd, ptr, sendlen, 0);
-        if(retlen < 0)
-        {
-            if(errno == EINTR)
-                retlen = 0;
-            else
-                exit(1);
-        }
-        leftlen -= retlen;
-        ptr += retlen;
-    }
-    close(sock_fd);
 
-    return 0;
+    server_addr.sin_family = AF_INET;
+    server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+    server_addr.sin_port = htons(SERVER_PORT);
 
+    char message[MAX_MESSAGE_LEN];
+    int msg_len,cnt = 0;
+    while (cnt < 100)
+    {
+        sprintf(message, "heartbeat %d", cnt);
+        msg_len = strlen(message);
+        sendto(sockfd, message, msg_len, 0, (struct sockaddr *)&server_addr, sizeof(server_addr));
+        debug("send heartbeat %s:%d,No:%d\r\n", (char *)inet_ntoa(server_addr.sin_addr), ntohs(server_addr.sin_port), cnt);
+        cnt++;
+    }
+    sleep(30);
+
+    close(sockfd);
+
+    exit(0);
 }
