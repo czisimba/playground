@@ -64,6 +64,21 @@ int opt_parse(int argc, char **argv)
     return 0;
 }
 
+char *tail(char *filename)
+{
+    char *s;
+
+    while (*filename) {
+        s = strrchr(filename, '/');
+        if (s == NULL)
+            break;
+        if (s[1])
+            return (s + 1);
+        *s = '\0';
+    }
+    return (filename);
+}
+
 int main(int argc, char **argv)
 {
 	int             sock;
@@ -107,29 +122,95 @@ int main(int argc, char **argv)
         // recv get response msg
         recv_len = recvfrom(sock, msg, sizeof(buff), 0, NULL, NULL);
         if (recv_len < 8 || msg->opcode != OPTCODE_GET_RESPONSE) {
-            perror("get response msg");
+            printf("file not found...\n");
             exit(1);
         }
         // recv file
         int fd;
-        fd = open("./tmp", O_RDWR |O_APPEND | O_CREAT | O_TRUNC);
+        mode_t new_umask = 0666;  
+        fd = open(filename, O_RDWR |O_APPEND | O_CREAT | O_TRUNC);
         if (fd < 0) {
             perror("open");
             exit(-1);
         }
+        chmod(filename, new_umask);
         int leftlen;
         leftlen = pckt_len = msg->len;
+        datablock_t *block = (datablock_t *)buff;
         while (leftlen) {
+            // get && write file data
             int data_len;
-            recv_len = recvfrom(sock, buff, sizeof(buff), 0, NULL, NULL);
+            recv_len = recvfrom(sock, block, sizeof(buff), 0, NULL, NULL);
             data_len = recv_len - sizeof(datablock_t);
-            //printf("recv file data len:%u\n" ,data_len);
+            printf("recv file data len:%u\n" ,data_len);
             write(fd, buff + sizeof(datablock_t), data_len);
             leftlen -= data_len;
+            // send ack
+            block->opcode = OPTCODE_DATA_ACK;
+            sendto(sock, block, sizeof(datablock_t), 0, (struct sockaddr *)&serveraddr, sizeof(serveraddr));
+            printf("send ack,block num:%d\n" ,block->blocknum);
         }
         close(fd);
     } else {// put
-        // ...
+        // send put request msg
+        char remote_filename[MAX_FILENAME_LEN];
+        init_msg_t *msg = (init_msg_t *)buff;
+        struct stat file_stat;
+        if (stat(filename, &file_stat))         //得到文件大小
+        {
+            perror("stat");
+            exit(1);
+        }
+        msg->opcode = OPTCODE_PUT_REQUEST;
+        msg->len = (int)(file_stat.st_size);
+        strcpy(remote_filename, filename);
+        strcpy(msg->filename, tail(remote_filename));
+        pckt_len = sizeof(init_msg_t) + strlen(msg->filename) + 1;
+        sendto(sock, msg, pckt_len, 0, (struct sockaddr *)&serveraddr, sizeof(serveraddr));
+        printf("send filename:%s, len:%u\n", filename, pckt_len);
+        printf("uploading...\n");
+
+        // recv get response msg
+        recv_len = recvfrom(sock, msg, sizeof(buff), 0, NULL, NULL);
+        if (recv_len < 8 || msg->opcode != OPTCODE_PUT_RESPONSE) {
+            printf("can't upload...\n");
+            exit(1);
+        }
+        // send file
+        int fd;
+        fd = open(filename, O_RDONLY);
+        if (fd < 0) {
+            perror("open");
+            exit(-1);
+        }
+        int nread = 0;
+        unsigned short blocknum = 0;
+        int try_cnt = 5;
+        datablock_t *block = (datablock_t *)buff;
+        char *data = buff + sizeof(datablock_t);
+        while ((nread = read(fd, data, 1400)) > 0) {
+            while (1) {
+                // send file data
+                block->opcode = OPTCODE_DATABLOCK;
+                block->blocknum = blocknum++;
+                sendto(sock, buff, nread + sizeof(datablock_t), 0, (struct sockaddr *)&serveraddr, sizeof(serveraddr));
+                printf("send file data len:%d\n", nread);
+                // recv ack
+                recvfrom(sock, block, sizeof(buff), 0, NULL, NULL);
+                printf("recv ack,block num:%d\n" ,block->blocknum);
+                if (block->opcode != OPTCODE_DATA_ACK || block->blocknum != blocknum - 1) {
+                    blocknum--;
+                    printf("block num not match,retransmit\n");
+                    if (--try_cnt == 0)
+                        break;
+                    continue;
+                }
+                break;
+            }
+            if (try_cnt == 0)
+                break;
+        }
+        close(fd);
     }
 
     exit(0);
