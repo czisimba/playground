@@ -13,7 +13,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <sys/stat.h>
-#include "common.h"
+#include "tftp.h"
 
 
 #define TRANSMIT_MODE_GET 1
@@ -83,6 +83,8 @@ int main(int argc, char **argv)
 {
 	int             sock;
 	struct sockaddr_in serveraddr, local_addr;
+    fd_set rds;
+    struct timeval timeout;
 
     if (opt_parse(argc, argv) == -1)
         exit(-1);
@@ -109,9 +111,9 @@ int main(int argc, char **argv)
     int pckt_len = 0;
     int recv_len = 0;
     if (transmit_mode == TRANSMIT_MODE_GET) {
-        // send get request msg
+        // send RRQ
         init_msg_t *msg = (init_msg_t *)buff;
-        msg->opcode = OPTCODE_GET_REQUEST;
+        msg->opcode = RRQ;
         msg->len = 0;
         strcpy(msg->filename, filename);
         pckt_len = sizeof(init_msg_t) + strlen(msg->filename) + 1;
@@ -119,12 +121,14 @@ int main(int argc, char **argv)
         printf("send len:%u\n", pckt_len);
         printf("downloading...\n");
 
-        // recv get response msg
+        // recv RRQ response
         recv_len = recvfrom(sock, msg, sizeof(buff), 0, NULL, NULL);
-        if (recv_len < 8 || msg->opcode != OPTCODE_GET_RESPONSE) {
+        if (recv_len < 8 || msg->opcode != RRQ) {
             printf("file not found...\n");
             exit(1);
         }
+        // send RRQ again
+        sendto(sock, msg, recv_len, 0, (struct sockaddr *)&serveraddr, sizeof(serveraddr));
         // recv file
         int fd;
         mode_t new_umask = 0666;  
@@ -135,18 +139,24 @@ int main(int argc, char **argv)
         }
         chmod(filename, new_umask);
         int leftlen;
+        int max_block_num = -1;
         leftlen = pckt_len = msg->len;
         datablock_t *block = (datablock_t *)buff;
         while (leftlen) {
             // get && write file data
             int data_len;
             recv_len = recvfrom(sock, block, sizeof(buff), 0, NULL, NULL);
-            data_len = recv_len - sizeof(datablock_t);
-            printf("recv file data len:%u\n" ,data_len);
-            write(fd, buff + sizeof(datablock_t), data_len);
-            leftlen -= data_len;
+            if (block->blocknum > max_block_num) {
+                max_block_num = block->blocknum;
+                data_len = recv_len - sizeof(datablock_t);
+                printf("recv file block:%d data len:%u\n" ,block->blocknum, data_len);
+                write(fd, buff + sizeof(datablock_t), data_len);
+                leftlen -= data_len;
+            }
             // send ack
-            block->opcode = OPTCODE_DATA_ACK;
+            srand( (unsigned int)time(0));
+            //usleep((rand() % 110) * 1000);
+            block->opcode = ACK;
             sendto(sock, block, sizeof(datablock_t), 0, (struct sockaddr *)&serveraddr, sizeof(serveraddr));
             printf("send ack,block num:%d\n" ,block->blocknum);
         }
@@ -156,12 +166,12 @@ int main(int argc, char **argv)
         char remote_filename[MAX_FILENAME_LEN];
         init_msg_t *msg = (init_msg_t *)buff;
         struct stat file_stat;
-        if (stat(filename, &file_stat))         //得到文件大小
+        if (stat(filename, &file_stat))
         {
             perror("stat");
             exit(1);
         }
-        msg->opcode = OPTCODE_PUT_REQUEST;
+        msg->opcode = WRQ;
         msg->len = (int)(file_stat.st_size);
         strcpy(remote_filename, filename);
         strcpy(msg->filename, tail(remote_filename));
@@ -172,7 +182,7 @@ int main(int argc, char **argv)
 
         // recv get response msg
         recv_len = recvfrom(sock, msg, sizeof(buff), 0, NULL, NULL);
-        if (recv_len < 8 || msg->opcode != OPTCODE_PUT_RESPONSE) {
+        if (recv_len < 8 || msg->opcode != WRQ) {
             printf("can't upload...\n");
             exit(1);
         }
@@ -191,21 +201,30 @@ int main(int argc, char **argv)
         while ((nread = read(fd, data, 1400)) > 0) {
             while (1) {
                 // send file data
-                block->opcode = OPTCODE_DATABLOCK;
-                block->blocknum = blocknum++;
+                block->opcode = DATA;
+                block->blocknum = blocknum;
                 sendto(sock, buff, nread + sizeof(datablock_t), 0, (struct sockaddr *)&serveraddr, sizeof(serveraddr));
                 printf("send file data len:%d\n", nread);
                 // recv ack
-                recvfrom(sock, block, sizeof(buff), 0, NULL, NULL);
-                printf("recv ack,block num:%d\n" ,block->blocknum);
-                if (block->opcode != OPTCODE_DATA_ACK || block->blocknum != blocknum - 1) {
-                    blocknum--;
-                    printf("block num not match,retransmit\n");
+                FD_ZERO(&rds);
+                FD_SET(sock, &rds);
+                timeout.tv_sec  = 0;
+                timeout.tv_usec = 100 * 1000;
+                int ret = select(sock+1, &rds, NULL, NULL, &timeout);
+                if (ret == 0) {
+                    printf("try_cnt:%d,block:%d timeout\n", try_cnt, block->blocknum);
                     if (--try_cnt == 0)
                         break;
                     continue;
                 }
-                break;
+                if (FD_ISSET(sock, &rds)) {
+                    recvfrom(sock, block, sizeof(buff), 0, NULL, NULL);
+                    printf("recv ack,block num:%d\n" ,block->blocknum);
+                    if (block->blocknum == blocknum) {
+                        blocknum++; 
+                        break;
+                    }
+                }
             }
             if (try_cnt == 0)
                 break;
