@@ -8,10 +8,9 @@
 #include <errno.h>
 #include <stdlib.h>
 
-#define MAX_LISTEN_NUM 5
 #define SEND_BUF_SIZE 100
-#define SERVER_PORT_START 11010
-#define MAX_CONNECT_SOCKET 100
+#define SERVER_PORT_START 5000
+#define MAX_CONNECT_SOCKET 10000
 int main()
 {
     int sock_fd = 0;
@@ -23,11 +22,11 @@ int main()
     short server_port = SERVER_PORT_START;
     int i;
 
+    memset(&ser_addr, 0, sizeof(ser_addr));
+    ser_addr.sin_family = AF_INET;
+    inet_aton("127.0.0.1", (struct in_addr *)&ser_addr.sin_addr);
+    ser_addr.sin_port = htons(server_port);
     for (i = 0;i < MAX_CONNECT_SOCKET;i++) {
-        memset(&ser_addr, 0, sizeof(ser_addr));
-        ser_addr.sin_family = AF_INET;
-        inet_aton("127.0.0.1", (struct in_addr *)&ser_addr.sin_addr);
-        ser_addr.sin_port = htons(server_port++);
         sock_fd = socket(AF_INET, SOCK_STREAM, 0);
         if(sock_fd < 0)
         {
@@ -39,14 +38,15 @@ int main()
             printf("%s:%d, connect socket failed\n", __FILE__, __LINE__);
             exit(1);
         }
-        //send data
-        sprintf(sendbuf, "hello i am client %d", getpid());
         printf("port %d connect\n", server_port);
+        //send data
+        sprintf(sendbuf, "hello i am client %d", sock_fd);
         leftlen = strlen(sendbuf) + 1;
         ptr = sendbuf;
         while(leftlen)
         {
             retlen = send(sock_fd, ptr, leftlen, 0);
+            printf("send data:[%s]\n", ptr);
             if(retlen < 0)
             {
                 if(errno == EINTR)
@@ -58,7 +58,6 @@ int main()
             ptr += retlen;
         }
         close(sock_fd);
-        usleep(100 * 1000);
     }
 
     return 0;

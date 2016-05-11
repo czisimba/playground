@@ -11,98 +11,100 @@
 #include <syslog.h>
 #include <errno.h>
 
-#define MAX_LISTEN_NUM 5
-#define SEND_BUF_SIZE 100
-#define RECV_BUF_SIZE 100
-#define LISTEN_PORT_START 11010
-#define MAX_LISTEN_SOCKET 100
-
+#define MAX_LISTEN_NUM 1000
+#define MAXLINE 1500
+#define SERVER_PORT 5000
 int main()
 {
-    int sock[MAX_LISTEN_SOCKET], max_sock_fd = 0;
-    struct sockaddr_in hostaddr, clientaddr;
-    struct timeval timeout;
-    fd_set rds;
-    char recvbuf[RECV_BUF_SIZE] = {0};
-    int retlen = 0, leftlen = 0;
-    char *ptr = NULL;
-    int i;
-    short listen_port = LISTEN_PORT_START;
+    int i, maxi, maxfd, listenfd, connfd, sockfd;
+    int nready, client[FD_SETSIZE];
+    ssize_t n;
+    fd_set rset, allset;
+    char buf[MAXLINE];
+    socklen_t clilen;
+    struct sockaddr_in cliaddr, serveraddr;
+    int connet_num = 0;
 
-    FD_ZERO(&rds);
-    memset((void *)&clientaddr, 0, sizeof(clientaddr));
-    for (i = 0;i < MAX_LISTEN_SOCKET;i++) {
-        memset((void *)&hostaddr, 0, sizeof(hostaddr));
-        hostaddr.sin_family = AF_INET;
-        hostaddr.sin_port = htons(listen_port++);
-        hostaddr.sin_addr.s_addr = htonl(INADDR_ANY);//auto get system ip address
-        sock[i] = socket(AF_INET, SOCK_STREAM, 0);
-        if (sock[i] < 0) {
-            perror("%s:%d, create socket failed");
-            exit(1);
-        }
-        if (bind(sock[i], (struct sockaddr *)&hostaddr, sizeof(hostaddr)) < 0)
-        {
-            perror("%s:%d, bind socket failed");
-            exit(1);
-        }
-        if (listen(sock[i], MAX_LISTEN_NUM) < 0)
-        {
-            syslog(LOG_ERR, "%s:%d, listen failed", __FILE__, __LINE__);
-            exit(1);
-        }
-        FD_SET(sock[i], &rds);
-        printf("i:%d sock:%d\n", i, sock[i]);
-        if (sock[i] > max_sock_fd)
-            max_sock_fd = sock[i];
-        printf("max_sock_fd:%d\n", max_sock_fd);
+    // init
+    listenfd = socket(AF_INET, SOCK_STREAM, 0);
+    if (listenfd < 0) {
+        perror("socket");
+        exit(-1);
     }
 
-    while(1)
-    {
-        timeout.tv_sec  = 5;
-        timeout.tv_usec = 0;
+    bzero(&serveraddr, sizeof(serveraddr));
+    serveraddr.sin_family = AF_INET;
+    serveraddr.sin_addr.s_addr = htonl(INADDR_ANY);
+    serveraddr.sin_port = htons(SERVER_PORT);
+    if (bind(listenfd, (struct sockaddr *)&serveraddr, sizeof(serveraddr)) < 0) {
+        perror("bind");
+        exit(-1);
+    }
+    if (listen(listenfd, MAX_LISTEN_NUM)) {
+        perror("listen");
+        exit(-1);
+    }
 
-        int ret = select(max_sock_fd+1, &rds, NULL, NULL, NULL);
-        if ( ret == 0 ) {
-            printf("Time Expired\n");
+    maxfd = listenfd;
+    maxi = -1;
+    for (i = 0;i < FD_SETSIZE;i++)
+        client[i] = -1;
+    FD_ZERO(&allset);
+    FD_SET(listenfd, &allset);
+
+    // process
+    for (;;) {
+        rset = allset;
+        nready = select(maxfd + 1, &rset, NULL, NULL, NULL);
+        if (nready < 0)
             continue;
-        } else if ( ret < 0) {
-            printf("Socket Error\n");
-            continue;
-        } 
-        printf("Socket select num:%d\n", ret);
-        for (i = 0;i < MAX_LISTEN_SOCKET;i++) {
-            if (FD_ISSET(sock[i], &rds)) {
-                int app_sock = accept(sock[i], NULL, NULL);
-                if(app_sock < 0)
-                {
-                    printf("%s:%d, accept failed", __FILE__, __LINE__);
-                    exit(1);
+
+        if (FD_ISSET(listenfd, &rset)) {
+            clilen = sizeof(cliaddr);
+            connfd = accept(listenfd, (struct sockaddr *)&cliaddr, &clilen);
+            connet_num++;
+            printf("now connect num:%d\n", connet_num);
+            for (i = 0;i < FD_SETSIZE;i++) {
+                if (client[i] < 0) {
+                    client[i] = connfd;
+                    break;
                 }
-                printf("accept socket fd: %d\n", sock[i]);
-                //receive data
-                ptr = recvbuf;
-                leftlen = RECV_BUF_SIZE -1;
-                {
-                    retlen = recv(app_sock, ptr, leftlen, 0) ;
-                    if(retlen < 0)
-                    {
-                        if(errno == EINTR)
-                            retlen = 0;
-                        else
-                            exit(1);
-                    }
-                    leftlen -= retlen;
-                    ptr += retlen;
+            }
+            if (i == FD_SETSIZE) {
+                perror("too much client");
+                break;
+            }
+            FD_SET(connfd, &allset);
+            printf("put %d in allset\n", connfd);
+            if (connfd > maxfd)
+                maxfd = connfd;
+            if (i > maxi)
+                maxi = i;
+            if (--nready <= 0)
+                continue;
+        }
+
+        for (i = 0;i <= maxi;i++) {
+            if ( (sockfd = client[i]) < 0)
+                continue;
+            printf("fd %d exist\n", sockfd);
+            if (FD_ISSET(sockfd, &rset)) {
+                printf("fd %d is set\n", sockfd);
+                if ((n = recv(sockfd, buf, MAXLINE, MSG_DONTWAIT)) == 0) {
+                    close(sockfd);
+                    printf("close fd:[%d]\n", sockfd);
+                    FD_CLR(sockfd, &allset);
+                    client[i] = -1;
+                } else {
+                    printf("recv data:[%s]\n", buf);
+                    send(sockfd, buf, MAXLINE, MSG_DONTWAIT);
                 }
-                printf("i is %d\n,receive data is : %s\n", i, recvbuf);
-                close(app_sock);
+
+                if (--nready <= 0)
+                    break;
             }
         }
     }
-    for (i = 0;i < MAX_LISTEN_SOCKET;i++)
-        close(sock[i]);
 
-    return 0;
+    exit(0);
 }
