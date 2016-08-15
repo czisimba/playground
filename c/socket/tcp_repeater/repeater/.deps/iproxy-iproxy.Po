@@ -1,0 +1,216 @@
+iproxy-iproxy.o: iproxy.c \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/stdio.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/features.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/uClibc_config.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/uClibc_arch_features.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/sys/cdefs.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/bin-ccache/../lib/gcc/mips-linux-uclibc/4.3.3/include/stddef.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/types.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/wordsize.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/kernel_types.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/typesizes.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/pthreadtypes.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/sched.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/uClibc_stdio.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/uClibc_mutex.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/pthread.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/sched.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/time.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/time.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/uClibc_clk_tck.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/signal.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/sigset.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/initspin.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/sigthread.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/uClibc_pthread.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/bin-ccache/../lib/gcc/mips-linux-uclibc/4.3.3/include/stdarg.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/stdio_lim.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/stdlib.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/sys/types.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/endian.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/endian.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/sys/select.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/select.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/sys/sysmacros.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/alloca.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/string.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/fcntl.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/fcntl.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/sgidefs.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/unistd.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/posix_opt.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/confname.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/getopt.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/errno.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/errno.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/linux/errno.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/asm/errno.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/asm-generic/errno-base.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/sys/socket.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/sys/uio.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/uio.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/socket.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/bin-ccache/../lib/gcc/mips-linux-uclibc/4.3.3/include-fixed/limits.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/bin-ccache/../lib/gcc/mips-linux-uclibc/4.3.3/include-fixed/syslimits.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/limits.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/posix1_lim.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/local_lim.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/linux/limits.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/uClibc_local_lim.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/posix2_lim.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/sockaddr.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/asm/socket.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/asm/sockios.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/asm/ioctl.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/asm-generic/ioctl.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/sys/un.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/arpa/inet.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/netinet/in.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/stdint.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/in.h \
+  /home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/byteswap.h \
+  ../common/socket.h ../include/usbmuxd.h
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/stdio.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/features.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/uClibc_config.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/uClibc_arch_features.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/sys/cdefs.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/bin-ccache/../lib/gcc/mips-linux-uclibc/4.3.3/include/stddef.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/types.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/wordsize.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/kernel_types.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/typesizes.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/pthreadtypes.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/sched.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/uClibc_stdio.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/uClibc_mutex.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/pthread.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/sched.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/time.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/time.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/uClibc_clk_tck.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/signal.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/sigset.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/initspin.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/sigthread.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/uClibc_pthread.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/bin-ccache/../lib/gcc/mips-linux-uclibc/4.3.3/include/stdarg.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/stdio_lim.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/stdlib.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/sys/types.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/endian.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/endian.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/sys/select.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/select.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/sys/sysmacros.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/alloca.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/string.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/fcntl.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/fcntl.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/sgidefs.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/unistd.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/posix_opt.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/confname.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/getopt.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/errno.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/errno.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/linux/errno.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/asm/errno.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/asm-generic/errno-base.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/sys/socket.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/sys/uio.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/uio.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/socket.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/bin-ccache/../lib/gcc/mips-linux-uclibc/4.3.3/include-fixed/limits.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/bin-ccache/../lib/gcc/mips-linux-uclibc/4.3.3/include-fixed/syslimits.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/limits.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/posix1_lim.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/local_lim.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/linux/limits.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/uClibc_local_lim.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/posix2_lim.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/sockaddr.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/asm/socket.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/asm/sockios.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/asm/ioctl.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/asm-generic/ioctl.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/sys/un.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/arpa/inet.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/netinet/in.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/stdint.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/in.h:
+
+/home/chengz/workspace/wifi_AR9342/sdk/build/gcc-4.3.3/build_mips/staging_dir/usr/include/bits/byteswap.h:
+
+../common/socket.h:
+
+../include/usbmuxd.h:
